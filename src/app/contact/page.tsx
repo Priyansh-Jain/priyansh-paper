@@ -157,7 +157,7 @@ export default function Contact() {
                 <span className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors cursor-default">Instagram</span>
                 <span className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors cursor-default">LinkedIn</span>
               </div>
-            </div>
+            </div> 
 
           </div>
         </main>
