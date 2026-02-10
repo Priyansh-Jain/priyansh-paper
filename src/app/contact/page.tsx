@@ -31,9 +31,14 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = { error: "Unexpected server response." };
+      }
 
-      if (res.ok) {
+      if (res.ok && data.success) {
         setStatus("success");
         setStatusMessage("Thank you! Your message has been sent successfully.");
         setFormData({ name: "", email: "", subject: "", message: "" });
@@ -44,11 +49,11 @@ export default function Contact() {
         }, 5000);
       } else {
         setStatus("error");
-        setStatusMessage(data.error || "Something went wrong. Please try again.");
+        setStatusMessage(data.error || `Error ${res.status}: Something went wrong.`);
       }
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setStatusMessage("Network error. Please check your connection and try again.");
+      setStatusMessage(`Network error: ${err instanceof Error ? err.message : "Please check your connection."}`);
     }
   };
 
