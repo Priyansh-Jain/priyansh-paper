@@ -104,24 +104,24 @@ export default function Contact() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200 dark:bg-white/5 relative group">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2000&auto=format&fit=crop" 
+                    src="/Amit.jpeg" 
                     alt="Team Member" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 filter md:grayscale md:group-hover:grayscale-0"
                   />
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-xs font-bold uppercase tracking-widest text-text-main dark:text-white">Priyansh Paper</p>
-                    <p className="text-[10px] text-text-muted dark:text-gray-400">Founder & Lead Engineer</p>
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-4 rounded-lg opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-xs font-bold uppercase tracking-widest text-text-main dark:text-white">Amit Jain</p>
+                    {/* <p className="text-[10px] text-text-muted dark:text-gray-400">Founder & Lead Engineer</p> */}
                   </div>
                 </div>
                  <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200 dark:bg-white/5 relative group md:mt-24">
                   <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2000&auto=format&fit=crop" 
+                    src="/priyansh.jpeg" 
                     alt="Team Member" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter md:grayscale md:group-hover:grayscale-0"
                   />
-                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-xs font-bold uppercase tracking-widest text-text-main dark:text-white">Sarah Chen</p>
-                    <p className="text-[10px] text-text-muted dark:text-gray-400">Head of Sustainability</p>
+                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm p-4 rounded-lg opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-xs font-bold uppercase tracking-widest text-text-main dark:text-white">Priyansh Jain</p>
+                    {/* <p className="text-[10px] text-text-muted dark:text-gray-400">Head of Sustainability</p> */}
                   </div>
                 </div>
               </div>
@@ -130,21 +130,32 @@ export default function Contact() {
                 <div>
                   <h3 className="font-serif text-xl font-bold mb-4 text-text-main dark:text-white border-b border-primary/20 pb-2 inline-block">Global Headquarters</h3>
                   <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed mb-4">
-                    Priyansh Paper Studio<br/>
-                    Industrial Estate, Goregaon East<br/>
-                    Mumbai, MH 400063, India
+                    Priyansh Paper Company<br/>
+                    5/1A, Top Floor, Gajju Katra,<br/>
+                    Ghee Mandi, Shahdara <br/>
+                    Delhi, DL 110032, India
                   </p>
                   <div className="flex flex-col gap-1 text-sm font-medium">
-                    <a className="hover:text-primary transition-colors" href="mailto:hello@priyanshpaper.com">hello@priyanshpaper.com</a>
-                    <a className="hover:text-primary transition-colors" href="tel:+912200000000">+91 22 0000 0000</a>
+                    <a className="hover:text-primary transition-colors cursor-pointer" href="mailto:priyanshpaper@gmail.com.com">priyanshpaper@gmail.com </a>
+                    <a className="hover:text-primary transition-colors cursor-pointer" href="tel:+919634242686">+919634242686</a>
                   </div>
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-xl font-bold mb-4 text-text-main dark:text-white border-b border-primary/20 pb-2 inline-block">GST Information</h3>
+                  <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed mb-4">
+                    GST Number:<br/>
+                    <span className="font-mono text-xs tracking-wider">07AANPJ9903A1ZT</span>
+                  </p>
+                  <p className="text-xs text-text-muted/60 dark:text-gray-500 italic">
+                    Registered in Delhi, India.
+                  </p>
                 </div>
               </div>
 
               <div className="flex gap-6">
-                <a className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors" href="#">Instagram</a>
-                <a className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors" href="#">LinkedIn</a>
-                <a className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors" href="#">Vimeo</a>
+                <span className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors cursor-default">Instagram</span>
+                <span className="text-xs uppercase tracking-widest font-bold text-text-muted hover:text-primary transition-colors cursor-default">LinkedIn</span>
               </div>
             </div>
 

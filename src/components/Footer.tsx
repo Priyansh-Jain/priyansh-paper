@@ -21,24 +21,24 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Explore</h4>
           <ul className="space-y-4 text-sm text-text-muted dark:text-gray-400">
-            <li><Link className="hover:text-primary transition-colors" href="/materials">Materials</Link></li>
-            <li><Link className="hover:text-primary transition-colors" href="/sustainability">Sustainability</Link></li>
+            <li><Link className="hover:text-primary transition-colors cursor-pointer" href="/materials">Materials</Link></li>
+            <li><Link className="hover:text-primary transition-colors cursor-pointer" href="/sustainability">Sustainability</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Connect</h4>
           <ul className="space-y-4 text-sm text-text-muted dark:text-gray-400">
-            <li><a className="hover:text-primary transition-colors" href="#">Instagram</a></li>
-            <li><a className="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
-            <li><Link className="hover:text-primary transition-colors" href="/contact">Contact</Link></li>
+            <li><span className="hover:text-primary transition-colors cursor-default">Instagram</span></li>
+            <li><span className="hover:text-primary transition-colors cursor-default">LinkedIn</span></li>
+            <li><Link className="hover:text-primary transition-colors cursor-pointer" href="/contact">Contact</Link></li>
           </ul>
         </div>
       </div>
       <div className="max-w-[1440px] mx-auto border-t border-black/5 dark:border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-widest text-text-muted/60 dark:text-gray-500">
         <p>© 2026 Priyansh Paper. All rights reserved.</p>
         <div className="flex gap-6 mt-4 md:mt-0">
-          <Link href="/privacy">Privacy Policy</Link>
-          <Link href="/terms">Terms of Service</Link>
+          <span>Privacy Policy</span>
+          <span>Terms of Service</span>
         </div>
       </div>
     </footer>

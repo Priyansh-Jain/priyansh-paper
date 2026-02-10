@@ -148,7 +148,7 @@ export const materialsData: Record<string, MaterialData> = {
                 title: "Lightweight",
                 description:
                     "High strength-to-weight ratio reduces shipping costs and carbon footprint.",
-                icon: "feather",
+                icon: "air",
             },
             {
                 title: "Rigidity",

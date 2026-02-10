@@ -46,11 +46,11 @@ export default function Home() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAjMub2bOtALLBWOqkWuy5HcMWa5owGcqfSflHH-LOKDmPJ_uu12m-m8_yLc7rbHNJU_-By1LvVfEPeKa9bbal5CDzK6nDJ3t2x84WSd9Pjm_f77YFZ0zqwDEMw7mhwjFzhDaGVEf8gPcrawhw1uyWh9Tl0sVFtstrW1POwB_GJuwZz-_ORR5Irm0SeILgcuRdX0t1_TMgqgfKKOnVM0N30x0E2SF99SWDPeSXGpBuxKU3w6vHRHomifAE5NIn9lP6KByUa3M67iA"
                 />
                 
-                 <div className="absolute top-[20%] left-[10%] bg-white/90 dark:bg-black/80 backdrop-blur-sm p-3 rounded shadow-lg border-l-4 border-primary max-w-[140px] hidden md:block">
+                 <div className="absolute top-[20%] left-[10%] bg-white/90 dark:bg-black/80 backdrop-blur-sm p-3 rounded shadow-lg border-l-4 border-primary max-w-[140px] block">
                   <p className="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Premium Kraft</p>
                   <p className="text-text-muted dark:text-gray-400 text-[10px]">320 GSM</p>
                 </div>
-                <div className="absolute bottom-[25%] right-[15%] bg-white/90 dark:bg-black/80 backdrop-blur-sm p-3 rounded shadow-lg border-l-4 border-primary max-w-[140px] hidden md:block">
+                <div className="absolute bottom-[25%] right-[15%] bg-white/90 dark:bg-black/80 backdrop-blur-sm p-3 rounded shadow-lg border-l-4 border-primary max-w-[140px] block">
                   <p className="text-xs font-bold uppercase tracking-wider text-text-main dark:text-white">Honeycomb</p>
                   <p className="text-text-muted dark:text-gray-400 text-[10px]">Shock Absorbent</p>
                 </div>
