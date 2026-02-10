@@ -1,8 +1,57 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setStatusMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your message has been sent successfully.");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        // Auto-dismiss success message after 5 seconds
+        setTimeout(() => {
+          setStatus("idle");
+          setStatusMessage("");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setStatusMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setStatus("error");
+      setStatusMessage("Network error. Please check your connection and try again.");
+    }
+  };
+
   return (
     <>
       <div className="fixed inset-0 pointer-events-none z-50 bg-noise opacity-30 dark:opacity-10 mix-blend-overlay"></div>
@@ -23,13 +72,15 @@ export default function Contact() {
                 </p>
               </div>
               
-              <form className="space-y-8">
+              <form className="space-y-8" onSubmit={handleSubmit} autoComplete="off">
                 <div className="relative group/field mb-8">
                   <input 
                     id="name" 
                     placeholder=" " 
                     required 
-                    type="text" 
+                    type="text"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="block py-4 px-2 w-full text-base text-text-main dark:text-white bg-transparent border-b border-black/10 dark:border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors"
                   />
                   <label 
@@ -45,7 +96,9 @@ export default function Contact() {
                     id="email" 
                     placeholder=" " 
                     required 
-                    type="email" 
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="block py-4 px-2 w-full text-base text-text-main dark:text-white bg-transparent border-b border-black/10 dark:border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors"
                   />
                   <label 
@@ -60,7 +113,9 @@ export default function Contact() {
                   <input 
                     id="subject" 
                     placeholder=" " 
-                    type="text" 
+                    type="text"
+                    value={formData.subject}
+                    onChange={handleChange}
                     className="block py-4 px-2 w-full text-base text-text-main dark:text-white bg-transparent border-b border-black/10 dark:border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors"
                   />
                   <label 
@@ -77,6 +132,8 @@ export default function Contact() {
                     placeholder=" " 
                     required 
                     rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
                     className="block py-4 px-2 w-full text-base text-text-main dark:text-white bg-transparent border-b border-black/10 dark:border-white/10 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer transition-colors resize-none"
                   ></textarea>
                   <label 
@@ -87,12 +144,31 @@ export default function Contact() {
                   </label>
                 </div>
 
+                {/* Status Message */}
+                {statusMessage && (
+                  <div className={`text-sm px-4 py-3 rounded-lg ${
+                    status === "success" 
+                      ? "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800" 
+                      : "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800"
+                  }`}>
+                    {statusMessage}
+                  </div>
+                )}
+
                 <button 
-                  type="submit" 
-                  className="group relative inline-flex items-center gap-3 px-10 py-5 bg-transparent border border-text-main dark:border-white text-text-main dark:text-white rounded-lg overflow-hidden transition-all hover:bg-text-main hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer"
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="group relative inline-flex items-center gap-3 px-10 py-5 bg-transparent border border-text-main dark:border-white text-text-main dark:text-white rounded-lg overflow-hidden transition-all hover:bg-text-main hover:text-white dark:hover:bg-white dark:hover:text-black cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="font-medium tracking-wide">Send Message</span>
-                  <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+                  <span className="font-medium tracking-wide">
+                    {status === "loading" ? "Sending..." : "Send Message"}
+                  </span>
+                  {status !== "loading" && (
+                    <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+                  )}
+                  {status === "loading" && (
+                    <span className="material-symbols-outlined text-[20px] animate-spin">progress_activity</span>
+                  )}
                 </button>
               </form>
             </div>
@@ -136,7 +212,7 @@ export default function Contact() {
                     Delhi, DL 110032, India
                   </p>
                   <div className="flex flex-col gap-1 text-sm font-medium">
-                    <a className="hover:text-primary transition-colors cursor-pointer" href="mailto:priyanshpaper@gmail.com.com">priyanshpaper@gmail.com </a>
+                    <a className="hover:text-primary transition-colors cursor-pointer" href="mailto:priyanshpaper@gmail.com">priyanshpaper@gmail.com</a>
                     <a className="hover:text-primary transition-colors cursor-pointer" href="tel:+919634242686">+919634242686</a>
                   </div>
                 </div>
@@ -152,7 +228,6 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
-
 
             </div> 
 
