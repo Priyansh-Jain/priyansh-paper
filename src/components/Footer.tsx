@@ -28,8 +28,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-xs uppercase tracking-widest mb-6">Connect</h4>
           <ul className="space-y-4 text-sm text-text-muted dark:text-gray-400">
-            <li><span className="hover:text-primary transition-colors cursor-default">Instagram</span></li>
-            <li><span className="hover:text-primary transition-colors cursor-default">LinkedIn</span></li>
+
             <li><Link className="hover:text-primary transition-colors cursor-pointer" href="/contact">Contact</Link></li>
           </ul>
         </div>
