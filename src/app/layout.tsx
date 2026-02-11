@@ -17,6 +17,9 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Priyansh Paper - Tactile Sustainability",
   description: "Engineered for the circular economy. Priyansh Paper creates high-performance packaging solutions from 100% renewable sources.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
